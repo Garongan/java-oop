@@ -16,6 +16,14 @@ public class Car {
         this.fuel = 0;
     }
 
+    public Car(String name) {
+        this.name = name;
+    }
+
+    //    default constructor, memungkinkan untuk membuat lebih dari 1 constructor
+//    dengan parameter yang berbeda serta urutannya
+    public Car() {}
+
     public void fillFuel(Integer fuel) {
         if (fuel > 30) {
             System.out.println("sudah penuh");

@@ -12,6 +12,8 @@ public class Main {
         car.fillFuel(10);
         car.fillFuel(20);
 
+        Car mobilio = new Car();
+
         System.out.println(car.getFuel());
         System.out.println(car.print());
 
