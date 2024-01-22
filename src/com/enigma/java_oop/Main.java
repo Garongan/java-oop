@@ -2,45 +2,64 @@ package com.enigma.java_oop;
 
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car("Ayla", "blue", 4, "ASOK123");
+//        object is representation from class/blueprint
+//        create the object is same of create variable
+//        instance in java is creating the object
+//        the instance is non-primitive
+//        example
 
-//        before using encapsulation
-//        when using the direct access we can't add logic to validation or manipulate the data
-//        car.fuel = 30;
+        Car bmw = new Car("BMW M3 GTR", "Blue White", 4, "NASN1235");
 
-//        after using encapsulation
-        car.fillFuel(10);
-        car.fillFuel(20);
+//        example passing argument to class with reassign
+//        bmw.name = "BMW M3 GTR";
+//        bmw.color = "Blue White";
+//        bmw.wheel = 4;
 
-        System.out.println(car.getFuel());
-        System.out.println(car.print());
+        System.out.println(bmw.name);
+        System.out.println(bmw.color);
+        System.out.println(bmw.wheel);
 
+//        example passing argument with constructor, that name is same with the class name
+//        constructor will call when the object is created
+        Car toyota = new Car("Toyota Supra GTR", "White", 4, "NASCAR2024");
+
+//        example passing argument to class with reassign
+//        toyota.name = "Toyota Supra";
+//        toyota.color = "White";
+//        toyota.wheel = 4;
+
+        System.out.println(toyota.name);
+        System.out.println(toyota.color);
+        System.out.println(toyota.wheel);
+
+//        how to call the method through the object
+        toyota.start();
+        bmw.stop();
+
+//        using the array to object class
+        String[][] carList =
+        {
+            {"Alpard", "Black", "4", "ASA45"},
+            {"Fortuner", "White", "4", "BRO78"},
+            {"Pajero", "Blue", "4", "SEN12"}
+        };
+
+        Car[] car = new Car[3];
+        for (int i = 0; i < carList.length; i++) {
+            car[i] = new Car(carList[i][0], carList[i][1], Integer.parseInt(carList[i][2]), carList[i][3]);
+        }
+
+        for (int i = 0; i < car.length; i++) {
+            System.out.println(car[i].print());
+        }
+
+//        4 pillar OOP
         /*
-         * Access Modifier
-         *
-         * there is 4 access modifier
-         * 1. default -> if not initialize access modifier
-         * 2. private -> only can access by attribute or method inside calls
-         * 3. public -> can access by other class and inside class
-         * 4. protected -> only can access by same class or inherited class
-         *
-         * */
+        * Encapsulation
+        * Inheritance
+        * Polymorphism
+        * Abstraction
+        * */
 
-        /*
-         * Getter and Setter
-         * Get -> to get the value
-         * Set -> to set the value
-         * */
-
-        System.out.println("======Abstract and Object Example=======");
-
-//        abstract and object example
-        Bird emprit = new Bird("Hijau", 2, "citt", "Emprit");
-        Fruit apel = new Fruit("Merah", "Apel", 5);
-        Animal kera = new Animal("Kera", "Coklat", "uuuAAA", 2);
-
-        System.out.println(emprit.getName() + " suaranya " + emprit.getSound());
-        System.out.println(apel.getName() + " warnanya " + apel.getColor());
-        System.out.println(kera.getName() + " suaranya " + kera.getSound());
     }
 }
