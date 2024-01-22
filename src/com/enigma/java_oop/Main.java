@@ -1,48 +1,37 @@
 package com.enigma.java_oop;
 
+import com.enigma.java_oop.Inheritance.Block;
+import com.enigma.java_oop.Inheritance.Cow;
+import com.enigma.java_oop.Inheritance.Rectangle;
+
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car("Ayla", "blue", 4, "ASOK123");
+//        example using inheritance
+//        inheritance tidak bisa extends 2 class
+        Rectangle rectangle = new Rectangle(10.0, 5.0);
+        System.out.println(rectangle.getSurface());
+        Block block = new Block(10.0, 5.0, 3.0);
+        System.out.println(block.getVolume());
+        System.out.println(block.getSurface());
 
-//        before using encapsulation
-//        when using the direct access we can't add logic to validation or manipulate the data
-//        car.fuel = 30;
+//        example print inheritance class
+        System.out.println("===print rectangle===");
+        System.out.println(rectangle.print());
+        System.out.println("===print block===");
+        System.out.println(block.print());
 
-//        after using encapsulation
-        car.fillFuel(10);
-        car.fillFuel(20);
+//        example of grandparents
+//        inheritance can have many lineages (garis keturunan)
+        Cow cow = new Cow();
+        cow.makeSound();
+        cow.breathe();
 
-        Car mobilio = new Car();
+//        Object merupakan kelas paling tinggi dalam java
+//        setiap kelas dalam merupakan extends dari kelas Object
+//        ngoding di java itu satu class satu file
+//        setiap class di java memiliki tanggung jawab masing-masing
 
-        System.out.println(car.getFuel());
-        System.out.println(car.print());
-
-        /*
-         * Access Modifier
-         *
-         * there is 4 access modifier
-         * 1. default -> if not initialize access modifier
-         * 2. private -> only can access by attribute or method inside calls
-         * 3. public -> can access by other class and inside class
-         * 4. protected -> only can access by same class or inherited class
-         *
-         * */
-
-        /*
-         * Getter and Setter
-         * Get -> to get the value
-         * Set -> to set the value
-         * */
-
-        System.out.println("======Abstract and Object Example=======");
-
-//        abstract and object example
-        Bird emprit = new Bird("Hijau", 2, "citt", "Emprit");
-        Fruit apel = new Fruit("Merah", "Apel", 5);
-        Animal kera = new Animal("Kera", "Coklat", "uuuAAA", 2);
-
-        System.out.println(emprit.getName() + " suaranya " + emprit.getSound());
-        System.out.println(apel.getName() + " warnanya " + apel.getColor());
-        System.out.println(kera.getName() + " suaranya " + kera.getSound());
+//        Everything in java is object
+        System.out.println(cow.toString());
     }
 }
