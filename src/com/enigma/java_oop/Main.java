@@ -1,37 +1,70 @@
 package com.enigma.java_oop;
 
-import com.enigma.java_oop.Inheritance.Block;
-import com.enigma.java_oop.Inheritance.Cow;
-import com.enigma.java_oop.Inheritance.Rectangle;
+import com.enigma.java_oop.object_interaction.Hero;
+import com.enigma.java_oop.object_interaction.Lamp;
+import com.enigma.java_oop.object_interaction.Monster;
+import com.enigma.java_oop.object_interaction.Room;
 
 public class Main {
     public static void main(String[] args) {
-//        example using inheritance
-//        inheritance tidak bisa extends 2 class
-        Rectangle rectangle = new Rectangle(10.0, 5.0);
-        System.out.println(rectangle.getSurface());
-        Block block = new Block(10.0, 5.0, 3.0);
-        System.out.println(block.getVolume());
-        System.out.println(block.getSurface());
+        Hero gatokaca = new Hero("Gatotkaca", 1000, 80);
+        Hero satima = new Hero("Saitama", 1000, 100);
 
-//        example print inheritance class
-        System.out.println("===print rectangle===");
-        System.out.println(rectangle.print());
-        System.out.println("===print block===");
-        System.out.println(block.print());
+        Monster serpent = new Monster("Serpent", 500, 50);
+        Monster sugra = new Monster("Sugra", 500, 100);
 
-//        example of grandparents
-//        inheritance can have many lineages (garis keturunan)
-        Cow cow = new Cow();
-        cow.makeSound();
-        cow.breathe();
+//        Object interaction
+        System.out.println("Sebelum attack");
+        System.out.println(gatokaca.print());
+        System.out.println(satima.print());
+        System.out.println(serpent.print());
+        System.out.println(sugra.print());
 
-//        Object merupakan kelas paling tinggi dalam java
-//        setiap kelas dalam merupakan extends dari kelas Object
-//        ngoding di java itu satu class satu file
-//        setiap class di java memiliki tanggung jawab masing-masing
+//        bedakan mana objek satima dan objek gatotkaca
+//        monster attack monster
+//        hero attack hero
+        satima.attack(gatokaca);
+        gatokaca.attack(satima);
+        serpent.attack(sugra);
+        sugra.attack(serpent);
 
-//        Everything in java is object
-        System.out.println(cow.toString());
+
+        System.out.println("Setelah attack");
+        System.out.println(gatokaca.print());
+        System.out.println(satima.print());
+        System.out.println(serpent.print());
+        System.out.println(sugra.print());
+
+//        lagi war
+        System.out.println();
+        System.out.println("===========lagi war===========");
+
+        Hero nana = new Hero("Nana", 100, 500);
+        Monster balmond = new Monster("Balmond", 1000, 50);
+        System.out.println(nana.print());
+        System.out.println(balmond.print());
+
+        System.out.println("\n===nana attack===");
+        nana.attack(balmond);
+        System.out.println(balmond.print());
+
+        System.out.println("\n===nana self attack===");
+        nana.attack(nana);
+
+        System.out.println("\n===balmond attack===");
+        balmond.attack(nana);
+        System.out.println(nana.print());
+
+        System.out.println("\n===balmond self attack===");
+        balmond.attack(balmond);
+
+//        dependency injection example
+//        class sebagai type data
+
+        Lamp lamp = new Lamp();
+        Room room = new Room(lamp);
+        room.switchLight();
+
+        System.out.println(lamp.isOn());
     }
 }
