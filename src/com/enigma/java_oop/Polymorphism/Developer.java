@@ -1,6 +1,6 @@
 package com.enigma.java_oop.Polymorphism;
 
-public class Developer extends Manager {
+public class Developer extends Employee {
     public Developer(String name) {
         super(name);
     }
