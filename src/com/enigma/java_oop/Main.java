@@ -1,70 +1,76 @@
 package com.enigma.java_oop;
 
-import com.enigma.java_oop.object_interaction.Hero;
-import com.enigma.java_oop.object_interaction.Lamp;
-import com.enigma.java_oop.object_interaction.Monster;
-import com.enigma.java_oop.object_interaction.Room;
+import com.enigma.java_oop.Inheritance.Animal;
+import com.enigma.java_oop.Inheritance.Cow;
+import com.enigma.java_oop.Inheritance.Mammals;
+import com.enigma.java_oop.Polymorphism.Developer;
+import com.enigma.java_oop.Polymorphism.Employee;
+import com.enigma.java_oop.Polymorphism.Manager;
 
 public class Main {
+//    public static void main(String[] args) {
+//        Employee employee = new Employee("Alvindo");
+//        employee.sayHello("Budi");
+//
+//        employee = new Manager("Rahman");
+//        employee.sayHello("Alvindo");
+//
+//        employee = new Developer("Irfan");
+//        employee.sayHello("Rahman");
+//
+//    }
+
     public static void main(String[] args) {
-        Hero gatokaca = new Hero("Gatotkaca", 1000, 80);
-        Hero satima = new Hero("Saitama", 1000, 100);
+//        Polymorphism
+//        Parent obj = new Child()
+//        Parent obj2 = new Parent
+        Animal animal = new Mammals();
+        animal.setName("Kuda");
+//        tidak bisa memanggil instance dari parent
+//        Mammals mammals = new Animal(); -> the right way is using casting
 
-        Monster serpent = new Monster("Serpent", 500, 50);
-        Monster sugra = new Monster("Sugra", 500, 100);
+//        casting animal to (mammals)
+        Mammals mammals = (Mammals) animal;
+        mammals.setName("sapi");
 
-//        Object interaction
-        System.out.println("Sebelum attack");
-        System.out.println(gatokaca.print());
-        System.out.println(satima.print());
-        System.out.println(serpent.print());
-        System.out.println(sugra.print());
+//        masih memakai attibute parent karena di casting
+        System.out.println(animal.getName());
+        System.out.println(mammals.getName());
 
-//        bedakan mana objek satima dan objek gatotkaca
-//        monster attack monster
-//        hero attack hero
-        satima.attack(gatokaca);
-        gatokaca.attack(satima);
-        serpent.attack(sugra);
-        sugra.attack(serpent);
+//        TipeData variableName = new Instance();
+        Animal animal1 = new Cow();
+        Cow cow = (Cow) animal1;
+
+//        the different calling mathod
+        animal.breathe();
+        animal.move();
+
+//        the mammals can get the animal method
+        mammals.breathe();
+        mammals.getBirth();
+        mammals.move();
+
+//        the cow can get the mammals method and animal method
+        cow.makeSound();
+        cow.breathe();
+        cow.move();
+        cow.getBirth();
 
 
-        System.out.println("Setelah attack");
-        System.out.println(gatokaca.print());
-        System.out.println(satima.print());
-        System.out.println(serpent.print());
-        System.out.println(sugra.print());
+        Animal dino = new Animal();
+        dino.setName("Indominus Rex");
+        Mammals horse = new Mammals();
+        horse.setName("Australian Horse");
+        Cow cow1 = new Cow();
+        cow1.setName("Japan Cow");
+        Animal[] animals = new Animal[3];
+        animals[0] = dino;
+        animals[1] = horse;
+        animals[2] = cow1;
 
-//        lagi war
-        System.out.println();
-        System.out.println("===========lagi war===========");
+        for (Animal animalObject : animals){
+            System.out.println(animalObject.getName());
+        }
 
-        Hero nana = new Hero("Nana", 100, 500);
-        Monster balmond = new Monster("Balmond", 1000, 50);
-        System.out.println(nana.print());
-        System.out.println(balmond.print());
-
-        System.out.println("\n===nana attack===");
-        nana.attack(balmond);
-        System.out.println(balmond.print());
-
-        System.out.println("\n===nana self attack===");
-        nana.attack(nana);
-
-        System.out.println("\n===balmond attack===");
-        balmond.attack(nana);
-        System.out.println(nana.print());
-
-        System.out.println("\n===balmond self attack===");
-        balmond.attack(balmond);
-
-//        dependency injection example
-//        class sebagai type data
-
-        Lamp lamp = new Lamp();
-        Room room = new Room(lamp);
-        room.switchLight();
-
-        System.out.println(lamp.isOn());
     }
 }
