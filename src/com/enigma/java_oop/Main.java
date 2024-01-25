@@ -1,21 +1,28 @@
 package com.enigma.java_oop;
 
+import com.enigma.java_oop.constant.Direction;
+import com.enigma.java_oop.constant.Gender;
 import com.enigma.java_oop.static_example.Constant;
 import com.enigma.java_oop.static_example.Helper;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
+//        Gender male = Gender.MALE;
+//        System.out.println(male);
+//        System.out.println(Gender.MALE);
+//        System.out.println(Gender.FEMALE);
+//
+//        System.out.println(Arrays.toString(Gender.values()));
+//
+////        how to call the enum class
+//        System.out.println(Gender.MALE.getDescription());
+//        System.out.println(Gender.tes());
 
-//        using static variable
-        System.out.println(Constant.APPLICATION);
-
-//        using static method
-        String inputName = Helper.inputString("Masukkan nama");
-        String inputAge = Helper.inputString("Masukkan usia", true);
-        System.out.printf(Constant.SUCCESS_MESSAGE, inputName + "\n");
-        System.out.printf(Constant.SUCCESS_MESSAGE, inputAge + "\n");
-        System.out.println(inputName);
-        System.out.println(inputAge);
+        Direction north = Direction.valueOf("NORTH");
+        System.out.println(north.turnRight());
+//        System.out.println(north.turnLeft());
     }
 
 }
